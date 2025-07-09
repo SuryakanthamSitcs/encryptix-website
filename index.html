@@ -3,54 +3,1249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cybersecurity & Encryption Services</title>
+    <title>SITCS | Private Mail Servers - Maximum Security, Zero Compromise</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        header { background: #1a1a1a; color: white; padding: 1rem 0; }
-        nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: bold; }
-        .hero { background: linear-gradient(135deg, #d32f2f 0%, #1a1a1a 100%); color: white; padding: 100px 0; text-align: center; }
-        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.2rem; margin-bottom: 2rem; }
-        .btn { display: inline-block; background: #d32f2f; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; transition: background 0.3s; }
-        .services { padding: 80px 0; background: #f8f9fa; }
-        .services h2 { text-align: center; margin-bottom: 50px; font-size: 2.5rem; }
-        footer { background: #1a1a1a; color: white; text-align: center; padding: 20px 0; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #0a0a0a;
+            --secondary-dark: #1a1a1a;
+            --accent-green: #00ff88;
+            --accent-blue: #00d4ff;
+            --danger-red: #ff0040;
+            --text-primary: #ffffff;
+            --text-secondary: #888888;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--primary-dark);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Background */
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.03;
+            background-image: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    var(--accent-green) 2px,
+                    var(--accent-green) 4px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 2px,
+                    var(--accent-green) 2px,
+                    var(--accent-green) 4px
+                );
+            background-size: 100px 100px;
+            animation: matrix-move 20s linear infinite;
+        }
+
+        @keyframes matrix-move {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(100px, 100px); }
+        }
+
+        /* Particle System */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--accent-green);
+            box-shadow: 0 0 10px var(--accent-green);
+            animation: float-up 15s infinite;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-green);
+            text-shadow: 0 0 10px var(--accent-green);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent-green);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 50px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--glass-bg);
+            border: 1px solid var(--accent-green);
+            border-radius: 50px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: var(--accent-green);
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(0, 255, 136, 0);
+            }
+        }
+
+        .hero-title {
+            font-size: clamp(48px, 8vw, 96px);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-green) 50%, var(--accent-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-shift 3s ease infinite;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            color: var(--text-secondary);
+            margin-bottom: 50px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        /* Tech Stack Visualization */
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 60px 0;
+        }
+
+        .tech-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--accent-green), var(--accent-blue), var(--accent-green));
+            border-radius: 20px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+            animation: rotate 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .tech-card:hover::before {
+            opacity: 1;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-10px);
+            background: rgba(0, 255, 136, 0.1);
+        }
+
+        .tech-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .tech-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--accent-green);
+        }
+
+        .tech-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 50px;
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 255, 136, 0.02) 50%, transparent 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+
+        .feature-card:hover::after {
+            transform: translateX(0);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 25px;
+        }
+
+        .feature-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Architecture Diagram */
+        .architecture {
+            padding: 100px 50px;
+            position: relative;
+        }
+
+        .arch-diagram {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 60px;
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .arch-diagram::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(0, 255, 136, 0.1) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            animation: pulse-slow 4s ease infinite;
+        }
+
+        @keyframes pulse-slow {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 50px;
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 212, 255, 0.02) 50%, transparent 100%);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--accent-green);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::before {
+            content: 'RECOMMENDED';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-green);
+            color: var(--primary-dark);
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .pricing-tier {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+        }
+
+        .pricing-amount {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .pricing-currency {
+            font-size: 24px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 40px 0;
+        }
+
+        .pricing-feature {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .pricing-feature:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: var(--accent-green);
+            font-size: 18px;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            padding: 18px 40px;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
+            color: var(--primary-dark);
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 50px;
+            background: var(--secondary-dark);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 56px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 18px;
+            color: var(--text-secondary);
+        }
+
+        /* Security Features */
+        .security-visual {
+            max-width: 800px;
+            margin: 60px auto;
+            position: relative;
+            height: 400px;
+        }
+
+        .security-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            box-shadow: 0 0 50px rgba(0, 255, 136, 0.5);
+            animation: rotate-slow 20s linear infinite;
+        }
+
+        @keyframes rotate-slow {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        .security-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid var(--glass-border);
+            border-radius: 50%;
+            animation: expand 3s ease infinite;
+        }
+
+        .security-ring:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            animation-delay: 0s;
+        }
+
+        .security-ring:nth-child(2) {
+            width: 300px;
+            height: 300px;
+            animation-delay: 1s;
+        }
+
+        .security-ring:nth-child(3) {
+            width: 400px;
+            height: 400px;
+            animation-delay: 2s;
+        }
+
+        @keyframes expand {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(1.5);
+            }
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 50px;
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .contact-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            border-color: var(--accent-green);
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 32px;
+            color: var(--accent-green);
+            margin-bottom: 15px;
+        }
+
+        .contact-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .contact-value {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 40px 50px;
+            background: var(--secondary-dark);
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav {
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 100px 20px 50px;
+            }
+
+            .hero-title {
+                font-size: 48px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .features, .pricing, .architecture {
+                padding: 60px 20px;
+            }
+
+            .arch-diagram {
+                padding: 30px;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--secondary-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-green);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-blue);
+        }
+
+        /* Terminal Animation */
+        .terminal {
+            background: #000;
+            border: 1px solid var(--accent-green);
+            border-radius: 10px;
+            padding: 20px;
+            font-family: 'SF Mono', monospace;
+            font-size: 14px;
+            margin: 40px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .terminal-header {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot.red {
+            background: #ff5f56;
+        }
+
+        .terminal-dot.yellow {
+            background: #ffbd2e;
+        }
+
+        .terminal-dot.green {
+            background: #27c93f;
+        }
+
+        .terminal-line {
+            margin: 10px 0;
+            opacity: 0;
+            animation: type-in 0.5s ease forwards;
+        }
+
+        .terminal-line:nth-child(1) { animation-delay: 0.5s; }
+        .terminal-line:nth-child(2) { animation-delay: 1s; }
+        .terminal-line:nth-child(3) { animation-delay: 1.5s; }
+        .terminal-line:nth-child(4) { animation-delay: 2s; }
+        .terminal-line:nth-child(5) { animation-delay: 2.5s; }
+
+        @keyframes type-in {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .terminal-prompt {
+            color: var(--accent-green);
+        }
+
+        .terminal-command {
+            color: var(--text-primary);
+        }
+
+        .terminal-output {
+            color: var(--accent-blue);
+        }
     </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">Cybersecurity & Encryption Services</div>
-            <div>
-                <a href="#" style="color: white; text-decoration: none; margin: 0 15px;">Home</a>
-                <a href="#" style="color: white; text-decoration: none; margin: 0 15px;">Services</a>
-                <a href="#" style="color: white; text-decoration: none; margin: 0 15px;">Contact</a>
-            </div>
-        </nav>
-    </header>
+    <!-- Matrix Background -->
+    <div class="matrix-bg"></div>
+    
+    <!-- Particle System -->
+    <div class="particles" id="particles"></div>
 
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="logo">SITCS</div>
+            <ul class="nav-links">
+                <li><a href="#features" class="nav-link">FEATURES</a></li>
+                <li><a href="#architecture" class="nav-link">ARCHITECTURE</a></li>
+                <li><a href="#security" class="nav-link">SECURITY</a></li>
+                <li><a href="#pricing" class="nav-link">PRICING</a></li>
+                <li><a href="#contact" class="nav-link">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <h1>Welcome to Cybersecurity & Encryption Services</h1>
-            <p>Professional solutions for modern challenges</p>
-            <a href="#" class="btn">Get Started</a>
+        <div class="hero-content">
+            <div class="hero-badge">🔒 MILITARY-GRADE ENCRYPTION</div>
+            <h1 class="hero-title">Private Mail Servers</h1>
+            <p class="hero-subtitle">Maximum Privacy. Zero Compromise. Complete Data Sovereignty.</p>
+            
+            <!-- Tech Stack -->
+            <div class="tech-stack">
+                <div class="tech-card">
+                    <span class="tech-icon">📧</span>
+                    <h3 class="tech-name">Postfix</h3>
+                    <p class="tech-description">Enterprise-grade MTA with advanced routing</p>
+                </div>
+                <div class="tech-card">
+                    <span class="tech-icon">🕊️</span>
+                    <h3 class="tech-name">Dovecot</h3>
+                    <p class="tech-description">High-performance IMAP/POP3 server</p>
+                </div>
+                <div class="tech-card">
+                    <span class="tech-icon">🌐</span>
+                    <h3 class="tech-name">Roundcube</h3>
+                    <p class="tech-description">Modern webmail interface</p>
+                </div>
+                <div class="tech-card">
+                    <span class="tech-icon">🛡️</span>
+                    <h3 class="tech-name">SOC 2 Compliant</h3>
+                    <p class="tech-description">Enterprise security standards</p>
+                </div>
+            </div>
+
+            <!-- Terminal Demo -->
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-dot red"></div>
+                    <div class="terminal-dot yellow"></div>
+                    <div class="terminal-dot green"></div>
+                </div>
+                <div class="terminal-content">
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">root@sitcs:~#</span>
+                        <span class="terminal-command"> systemctl status postfix</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-output">● postfix.service - Postfix Mail Transport Agent</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-output">   Active: active (running) | Uptime: 99.9%</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">root@sitcs:~#</span>
+                        <span class="terminal-command"> openssl s_client -starttls smtp</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-output">Verify return code: 0 (ok) | TLS 1.3 Enabled ✓</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="services">
-        <div class="container">
-            <h2>Our Services</h2>
-            <p style="text-align: center;">Coming soon...</p>
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-header">
+            <h2 class="section-title">Elite Security Features</h2>
+        </div>
+        
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔐</div>
+                <h3 class="feature-title">End-to-End Encryption</h3>
+                <p class="feature-description">Military-grade AES-256 encryption with PGP support. Your emails are encrypted at rest and in transit, ensuring complete privacy.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🏛️</div>
+                <h3 class="feature-title">Data Sovereignty</h3>
+                <p class="feature-description">100% control over your data. Emails never leave your servers. Perfect for compliance with local data protection laws.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">99.9% Uptime</h3>
+                <p class="feature-description">High-availability architecture with automated failover, load balancing, and real-time replication.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3 class="feature-title">Advanced Anti-Spam</h3>
+                <p class="feature-description">AI-powered spam detection with SpamAssassin, ClamAV antivirus, and custom filtering rules.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title">Real-time Monitoring</h3>
+                <p class="feature-description">24/7 SOC monitoring with instant alerts, detailed analytics, and comprehensive audit logs.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3 class="feature-title">Rapid Deployment</h3>
+                <p class="feature-description">Complete setup within 15 days. Our experts handle everything from installation to optimization.</p>
+            </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Cybersecurity & Encryption Services. All rights reserved.</p>
+    <!-- Architecture Section -->
+    <section class="architecture" id="architecture">
+        <div class="section-header">
+            <h2 class="section-title">Enterprise Architecture</h2>
         </div>
+        
+        <div class="arch-diagram">
+            <div class="security-visual">
+                <div class="security-ring"></div>
+                <div class="security-ring"></div>
+                <div class="security-ring"></div>
+                <div class="security-center">🔒</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">0</div>
+                <div class="stat-label">Security Breaches</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">15</div>
+                <div class="stat-label">Days to Deploy</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">99.9%</div>
+                <div class="stat-label">Uptime Guarantee</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Expert Support</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="section-header">
+            <h2 class="section-title">Investment Plans</h2>
+        </div>
+        
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3 class="pricing-tier">BASIC</h3>
+                <div class="pricing-amount">
+                    <span class="pricing-currency">₹</span>2.5L - 4L
+                </div>
+                <ul class="pricing-features">
+                    <li class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        Up to 100 mailboxes
+                    </li>
+                    <li class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        10GB per mailbox
+                    </li>
+                    <li class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        Basic spam filtering
+                    </li>
+                    <li class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        SSL/TLS encryption
+                    </li>
+                    <li class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        Daily backups
+                    </li>
+                </ul>
+                <a href="#contact" class="cta-button">GET STARTED</a>
+            </div>
+            
+            <div class="pricing-card featured">
+                <h3 class="pricing-tier">ENTERPRISE</h3>
+                <div class="pricing-amount">
+                    <span class="pricing-currency">₹</span>5L - 8L
+                </div>
+                <ul class="pricing-features">
+                    <li class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        Unlimited mailboxes
+                    </li>
+                    <li class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        50GB per mailbox
+                    </li>
+                    <li class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        AI-powered security
+                    </li>
+                    <li class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        High availability
+                    </li>
+                    <li class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        Real-time replication
+                    </li>
+                    <li class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        24/7 SOC monitoring
+                    </li>
+                </ul>
+                <a href="#contact" class="cta-button">DEPLOY NOW</a>
+            </div>
+            
+            <div class="pricing-card">
+                <h3 class="pricing-tier">MAINTENANCE</h3>
+                <div class="pricing-amount">
+                    <span class="pricing-currency">₹</span>25K - 50K
+                    <span style="font-size: 16px; font-weight: 400;">/month</span>
+                </div>
+                <ul class="pricing-features">
+                    <li class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        24/7 monitoring
+                    </li>
+                    <li class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        Security updates
+                    </li>
+                    <li class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        Performance tuning
+                    </li>
+                    <li class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        Backup management
+                    </li>
+                    <li class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        Priority support
+                    </li>
+                </ul>
+                <a href="#contact" class="cta-button">LEARN MORE</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-content">
+            <h2 class="section-title">Initiate Secure Contact</h2>
+            <p style="color: var(--text-secondary); font-size: 18px; margin-bottom: 40px;">
+                Ready to take control of your email infrastructure? Our security experts are standing by.
+            </p>
+            
+            <div class="contact-info">
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <div class="contact-label">Secure Email</div>
+                    <div class="contact-value">surya@sitcs.org.in</div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">📱</div>
+                    <div class="contact-label">Direct Line</div>
+                    <div class="contact-value">+91 6382711301</div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-label">Headquarters</div>
+                    <div class="contact-value">Salem, Tamil Nadu</div>
+                </div>
+            </div>
+            
+            <a href="mailto:surya@sitcs.org.in" class="cta-button" style="margin-top: 40px;">
+                REQUEST SECURITY ASSESSMENT
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">© 2025 SITCS. Government Registered | UDYAM Certified | Zero Breach Record</p>
     </footer>
+
+    <script>
+        // Particle Generation
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = 15 + Math.random() * 10 + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Nav Background on Scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(10, 10, 10, 0.95)';
+            } else {
+                nav.style.background = 'rgba(10, 10, 10, 0.8)';
+            }
+        });
+
+        // Number Animation for Stats
+        const animateNumbers = () => {
+            const numbers = document.querySelectorAll('.stat-number');
+            numbers.forEach(number => {
+                const target = number.innerText;
+                if (target.includes('%')) {
+                    let current = 0;
+                    const increment = 0.9;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= 99.9) {
+                            number.innerText = '99.9%';
+                            clearInterval(timer);
+                        } else {
+                            number.innerText = current.toFixed(1) + '%';
+                        }
+                    }, 20);
+                } else if (target === '24/7') {
+                    // Keep as is
+                } else {
+                    const finalValue = parseInt(target);
+                    let current = 0;
+                    const increment = finalValue / 50;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= finalValue) {
+                            number.innerText = finalValue;
+                            clearInterval(timer);
+                        } else {
+                            number.innerText = Math.floor(current);
+                        }
+                    }, 30);
+                }
+            });
+        };
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('stats')) {
+                        animateNumbers();
+                        observer.unobserve(entry.target);
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(document.querySelector('.stats'));
+
+        // Dynamic terminal typing effect
+        const terminalLines = document.querySelectorAll('.terminal-line');
+        terminalLines.forEach((line, index) => {
+            line.style.animationDelay = `${index * 0.5}s`;
+        });
+    </script>
 </body>
 </html>
